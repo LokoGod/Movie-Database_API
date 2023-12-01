@@ -5,9 +5,9 @@ const allGenres = async () => {
   return prisma.genre.findMany();
 };
 
-const createGenre = async (type: any) => {
+const postGenre = async (type: any) => {
   return prisma.genre.create({ data: type })
 }
 
-const genreModel = { allGenres, createGenre };
+const genreModel = { allGenres, postGenre };
 export default genreModel;
