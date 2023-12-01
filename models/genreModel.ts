@@ -6,6 +6,5 @@ const allGenres = async () => {
   return genres;
 };
 
-module.exports = {
-  allGenres,
-};
+const genreModel = { allGenres };
+export default genreModel;
