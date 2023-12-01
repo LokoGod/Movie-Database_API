@@ -1,4 +1,4 @@
-import genreModel from "../models/genreModel";
+import genreModel from "../repositories/genreRepository";
 
 const getAllGenres = async (req: any, res: any) => {
   try {
