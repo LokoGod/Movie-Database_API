@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // API Routing
-app.get("/api/v1/genre", genreRouter);
+app.use("/api/v1/genre", genreRouter);
 
 const port = process.env.PORT || 9000;
 

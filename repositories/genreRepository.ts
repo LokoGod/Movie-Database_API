@@ -2,9 +2,12 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 const allGenres = async () => {
-  const genres = await prisma.genre.findMany();
-  return genres;
+  return prisma.genre.findMany();
 };
 
-const genreModel = { allGenres };
+const createGenre = async (type: any) => {
+  return prisma.genre.create({ data: type })
+}
+
+const genreModel = { allGenres, createGenre };
 export default genreModel;
