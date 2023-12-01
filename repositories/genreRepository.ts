@@ -6,12 +6,12 @@ const allGenres = async () => {
 };
 
 const postGenre = async (type: any) => {
-  return prisma.genre.create({ data: type })
-}
+  return prisma.genre.create({ data: type });
+};
 
-const specificGenre = async (id: any)  => {
-  return prisma.genre.findUnique({where: id})
-}
+const specificGenre = async (id: number) => {
+  return prisma.genre.findUnique({ where: { id: id } });
+};
 
-const genreModel = { allGenres, postGenre, specificGenre };
-export default genreModel;
+const genreRepository = { allGenres, postGenre, specificGenre };
+export default genreRepository;

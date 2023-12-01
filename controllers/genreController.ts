@@ -23,7 +23,8 @@ const createGenre = async (req: any, res: any) => {
 
 const getSpecificGenre = async (req: any, res: any) => {
   try {
-    const genres = await genreRepository.specificGenre({});
+    const id = Number(req.params.id)
+    const genres = await genreRepository.specificGenre(id);
     res.status(200).json({ genres });
   } catch (error) {
     console.error(error);
