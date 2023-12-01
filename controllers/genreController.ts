@@ -14,7 +14,7 @@ const createGenre = async (req: any, res: any) => {
   try {
     const { type } = req.body;
     const genres = await genreRepository.postGenre({ type });
-    res.status(200).json({ genres });
+    res.status(201).json({ genres });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
