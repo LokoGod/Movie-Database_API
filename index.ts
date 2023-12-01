@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import "dotenv/config";
 
 // Importing custom routes
-
+import { genreRouter } from "./routes/genreRoutes";
 
 // Instances
 const app = express();
@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // API Routing
+app.get("/api/v1/genre", genreRouter);
 
 const port = process.env.PORT || 9000;
 
