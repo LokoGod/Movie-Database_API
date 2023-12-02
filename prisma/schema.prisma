@@ -10,7 +10,27 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model genre {
-  id Int @id @default(autoincrement())
-  type String @db.VarChar(255)
+model Movies {
+  id       Int         @id @default(autoincrement())
+  genre    Genres[]
+  director directors[]
+  cast     actors[]
+}
+
+model Genres {
+  id     Int      @id @default(autoincrement())
+  type   String   @db.VarChar(255)
+  movies Movies[]
+}
+
+model directors {
+  id       Int      @id @default(autoincrement())
+  dir_name String   @db.VarChar(300)
+  movies   Movies[]
+}
+
+model actors {
+  id         Int      @id @default(autoincrement())
+  actor_name String   @db.VarChar(300)
+  movies     Movies[]
 }
