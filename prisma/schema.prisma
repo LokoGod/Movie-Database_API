@@ -11,10 +11,11 @@ datasource db {
 }
 
 model Movies {
-  id       Int         @id @default(autoincrement())
-  genre    Genres[]
-  director directors[]
-  cast     actors[]
+  id    Int      @id @default(autoincrement())
+  title String   @db.VarChar(500)
+  genre Genres[]
+  // director directors[]
+  // cast     actors[]
 }
 
 model Genres {
@@ -24,13 +25,13 @@ model Genres {
 }
 
 model directors {
-  id       Int      @id @default(autoincrement())
-  dir_name String   @db.VarChar(300)
-  movies   Movies[]
+  id       Int    @id @default(autoincrement())
+  dir_name String @db.VarChar(300)
+  // movies   Movies[]
 }
 
 model actors {
-  id         Int      @id @default(autoincrement())
-  actor_name String   @db.VarChar(300)
-  movies     Movies[]
+  id         Int    @id @default(autoincrement())
+  actor_name String @db.VarChar(300)
+  // movies     Movies[]
 }
