@@ -12,8 +12,8 @@ const getAllGenres = async (req: any, res: any) => {
 
 const createGenre = async (req: any, res: any) => {
   try {
-    const { type } = req.body;
-    const genres = await genreRepository.postGenre({ type });
+    const { type, movies } = req.body;
+    const genres = await genreRepository.postGenre({ type }, { movies });
     res.status(201).json({ genres });
   } catch (error) {
     console.error(error);
@@ -23,7 +23,7 @@ const createGenre = async (req: any, res: any) => {
 
 const getSpecificGenre = async (req: any, res: any) => {
   try {
-    const id = Number(req.params.id)
+    const id = Number(req.params.id);
     const genres = await genreRepository.specificGenre(id);
     res.status(200).json({ genres });
   } catch (error) {
