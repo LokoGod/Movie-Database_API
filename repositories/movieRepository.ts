@@ -12,3 +12,6 @@ const postMovie = async (title: any, genre: any) => {
 const specificMovie = async (id: number) => {
   return prisma.movie.findUnique({ where: { id: id } });
 };
+
+const movieRepository = { allMovies, postMovie, specificMovie };
+export default movieRepository;
