@@ -5,6 +5,7 @@ import "dotenv/config";
 
 // Importing custom routes
 import { genreRouter } from "./routes/genreRoutes";
+import { movieRouter } from "./routes/movieRoutes";
 
 // Instances
 const app = express();
@@ -15,6 +16,7 @@ app.use(cors());
 
 // API Routing
 app.use("/api/v1/genre", genreRouter);
+app.use("/api/v1/movie", movieRouter)
 
 const port = process.env.PORT || 9000;
 
