@@ -8,3 +8,7 @@ const allMovies = async () => {
 const postMovie = async (title: any, genre: any) => {
   return prisma.movies.create({ data: { title, genre } });
 };
+
+const specificMovie = async (id: number) => {
+  return prisma.movies.findUnique({ where: { id: id } });
+};
