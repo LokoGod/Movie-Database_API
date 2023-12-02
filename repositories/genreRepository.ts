@@ -2,15 +2,15 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 const allGenres = async () => {
-  return prisma.genres.findMany();
+  return prisma.genre.findMany();
 };
 
 const postGenre = async (type: any, movies: any) => {
-  return prisma.genres.create({ data: { type, movies } });
+  return prisma.genre.create({ data: { type, movies } });
 };
 
 const specificGenre = async (id: number) => {
-  return prisma.genres.findUnique({ where: { id: id } });
+  return prisma.genre.findUnique({ where: { id: id } });
 };
 
 const genreRepository = { allGenres, postGenre, specificGenre };
