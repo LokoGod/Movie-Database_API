@@ -13,7 +13,9 @@ datasource db {
 model Movie {
   id    Int      @id @default(autoincrement())
   title String   @db.VarChar(500)
-  genre Genre[]
+  genre MovieGenre[]
+  director MovieDirector[]
+  actor     MovieActor[]
   // director directors[]
   // cast     actors[]
 }
@@ -21,17 +23,44 @@ model Movie {
 model Genre {
   id     Int      @id @default(autoincrement())
   type   String   @db.VarChar(255)
-  movies Movie[]
+  movies MovieGenre[]
+}
+
+model MovieGenre {
+  genre Genre @relation(fields: [genreId], references: [id])
+  genreId Int
+  movie Movie @relation(fields: [movieId], references: [id])
+  movieId Int
+
+  @@id([genreId, movieId])
 }
 
 model director {
   id       Int    @id @default(autoincrement())
   dir_name String @db.VarChar(300)
-  // movies   Movie[]
+  movies   MovieDirector[]
 }
 
-model actor {
+model MovieDirector {
+  director director @relation(fields: [directorId], references: [id])
+  directorId Int
+  movie Movie @relation(fields: [movieId], references: [id])
+  movieId Int
+
+  @@id([directorId, movieId])
+}
+
+model Actor {
   id         Int    @id @default(autoincrement())
   actor_name String @db.VarChar(300)
-  // movies     Movie[]
+  movies     MovieActor[]
+}
+
+model MovieActor {
+  actor Actor @relation(fields: [actorId], references: [id])
+  actorId Int
+    movie Movie @relation(fields: [movieId], references: [id])
+  movieId Int
+
+  @@id([actorId, movieId])
 }
