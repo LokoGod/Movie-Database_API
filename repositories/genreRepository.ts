@@ -5,8 +5,8 @@ const allGenres = async () => {
   return prisma.genre.findMany();
 };
 
-const postGenre = async (type: any, movies: any) => {
-  return prisma.genre.create({ data: { type, movies } });
+const postGenre = async (type: string, movies: any) => {
+  return prisma.genre.create({ data: { type, movies} });
 };
 
 const specificGenre = async (id: number) => {

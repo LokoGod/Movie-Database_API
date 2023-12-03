@@ -13,7 +13,7 @@ const getAllMovies = async (req: any, res: any) => {
 const createMovie = async (req: any, res: any) => {
   try {
     const { title, genre } = req.body;
-    const movies = await movieRepository.postMovie({ title }, { genre });
+    const movies = await movieRepository.postMovie(title, genre);
     res.status(201).json({ movies });
   } catch (error) {}
 };
