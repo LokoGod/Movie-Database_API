@@ -5,6 +5,7 @@ const page = () => {
   return (
     <div>
         <Sidebar/>
+        <h1></h1>
     </div>
   )
 }
