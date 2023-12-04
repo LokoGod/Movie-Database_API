@@ -12,7 +12,7 @@ const Home = () => {
           <br></br> industry. Lorem Ipsum has been
         </p>
         <div className="mt-5">
-          <button className="btn btn-accent">Explore</button>
+          <button className="btn btn-accent">Explore </button>
         </div>
       </div>
 
