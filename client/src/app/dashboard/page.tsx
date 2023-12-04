@@ -1,3 +1,12 @@
-export default function Page() {
-    return <h1>Hello</h1>
+import Sidebar from '@/components/commen_ui/Sidebar'
+import React from 'react'
+
+const page = () => {
+  return (
+    <div>
+        <Sidebar/>
+    </div>
+  )
 }
+
+export default page
