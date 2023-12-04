@@ -12,11 +12,27 @@ const getAllMovies = async (req: any, res: any) => {
 
 const createMovie = async (req: any, res: any) => {
   try {
-    const { title, genre } = req.body;
-    const movies = await movieRepository.postMovie(title, genre);
-    res.status(201).json({ movies });
-  } catch (error) {}
+    const { title, genreIds } = req.body;
+
+    const createdMovie = await movieRepository.postMovie({
+      data: {
+        title,
+        genre: {
+          connect: genreIds.map((id: any) => ({ id })),
+        },
+      },
+      include: {
+        genre: true,
+      },
+    });
+
+    res.status(201).json(createdMovie);
+  } catch (error) {
+    console.error('Error creating movie:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 };
+
 
 const getSpecificMovie = async (req: any, res: any) => {
   try {

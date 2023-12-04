@@ -5,8 +5,18 @@ const allMovies = async () => {
   return prisma.movie.findMany();
 };
 
-const postMovie = async (title: string, genre: any) => {
-  return prisma.movie.create({ data: { title, genre } });
+const postMovie = async (data: any) => {
+  return prisma.movie.create({
+    data: {
+      title: data.title,
+      genre: {
+        connect: data.genreIds.map((id: any) => ({ id })),
+      },
+    },
+    include: {
+      genre: true,
+    },
+  });
 };
 
 const specificMovie = async (id: number) => {
