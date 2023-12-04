@@ -21,11 +21,10 @@ const createMovie = async (req: any, res: any) => {
 
     res.status(201).json(createdMovie);
   } catch (error) {
-    console.error('Error creating movie:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error("Error creating movie:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
-
 
 const getSpecificMovie = async (req: any, res: any) => {
   try {
