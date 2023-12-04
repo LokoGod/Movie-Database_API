@@ -10,7 +10,7 @@ const postMovie = async (data: any) => {
     data: {
       title: data.title,
       genre: {
-        connect: data.genreIds.map((id: any) => ({ id })),
+        create: data.genreIds.map((id: any) => ({ genreId: id })),
       },
     },
     include: {

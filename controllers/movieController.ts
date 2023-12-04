@@ -15,15 +15,8 @@ const createMovie = async (req: any, res: any) => {
     const { title, genreIds } = req.body;
 
     const createdMovie = await movieRepository.postMovie({
-      data: {
-        title,
-        genre: {
-          connect: genreIds.map((id: any) => ({ id })),
-        },
-      },
-      include: {
-        genre: true,
-      },
+      title,
+      genreIds,
     });
 
     res.status(201).json(createdMovie);
