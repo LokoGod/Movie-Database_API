@@ -1,6 +1,7 @@
 import Navbar from "@/components/commen_ui/Navbar";
 import React from "react";
 
+
 const page = () => {
   return (
     <>
