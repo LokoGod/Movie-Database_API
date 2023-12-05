@@ -43,7 +43,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar-center">
-          <a className="btn btn-ghost text-xl">Movie Library</a>
+          <a href="/dashboard" className="btn btn-ghost text-xl">Movie Library</a>
         </div>
         <div className="navbar-end">
           <button className="btn btn-ghost btn-circle">
