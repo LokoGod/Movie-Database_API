@@ -10,4 +10,12 @@ const getAllDirectors = async (req: any, res: any) => {
   }
 };
 
+const getSpecificDirector = async (req: any, res: any) => {
+  try {
+    const id = Number(req.params.id);
+    const directors = await directorRepository.specificDirector(id);
+    res.status(200).json({ directors })
+  } catch (error) {}
+};
+
 export { getAllDirectors };
