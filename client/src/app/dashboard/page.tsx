@@ -5,7 +5,11 @@ const page = () => {
   return (
     <div>
       <Navbar />
-      <div className="card w-96 bg-base-100 shadow-xl m-5">
+
+      <a
+        href="/dashboard/detailedMovie"
+        className="card w-96 bg-base-100 shadow-xl m-5"
+      >
         <figure>
           <img
             src="https://c4.wallpaperflare.com/wallpaper/440/218/546/watchmen-comic-doctor-manhattan-wallpaper-preview.jpg"
@@ -23,7 +27,7 @@ const page = () => {
             <div className="badge badge-outline">Products</div>
           </div>
         </div>
-      </div>
+      </a>
 
       <h1 className="text-3xl font-bold text-center">Completed List</h1>
 
@@ -46,7 +50,6 @@ const page = () => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };
