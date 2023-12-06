@@ -12,13 +12,14 @@ const getAllMovies = async (req: any, res: any) => {
 
 const createMovie = async (req: any, res: any) => {
   try {
-    const { title, genreIds } = req.body;
+    const { title, genreIds, directorIds, castIds } = req.body;
 
     const createdMovie = await movieRepository.postMovie({
       title,
       genreIds,
+      directorIds,
+      castIds,
     });
-
     res.status(201).json(createdMovie);
   } catch (error) {
     console.error("Error creating movie:", error);
