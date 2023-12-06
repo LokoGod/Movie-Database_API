@@ -6,3 +6,5 @@
 - Delete movie (mark as completed)
 
 Add firebase storage
+
+API works hehe
