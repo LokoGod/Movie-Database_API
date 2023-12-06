@@ -7,6 +7,7 @@ import "dotenv/config";
 import { genreRouter } from "./routes/genreRoutes";
 import { movieRouter } from "./routes/movieRoutes";
 import { directorRouter } from "./routes/directorRoutes";
+import { actorRoutes } from "./routes/actorRoutes";
 
 // Instances
 const app = express();
@@ -19,6 +20,7 @@ app.use(cors());
 app.use("/api/v1/genre", genreRouter);
 app.use("/api/v1/movie", movieRouter);
 app.use("/api/v1/director", directorRouter);
+app.use("/api/v1/actor", actorRoutes);
 
 const port = process.env.PORT || 9000;
 
