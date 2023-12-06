@@ -8,6 +8,7 @@ import { genreRouter } from "./routes/genreRoutes";
 import { movieRouter } from "./routes/movieRoutes";
 import { directorRouter } from "./routes/directorRoutes";
 import { actorRoutes } from "./routes/actorRoutes";
+import { userRouter } from "./routes/userRoutes";
 
 // Instances
 const app = express();
@@ -21,6 +22,7 @@ app.use("/api/v1/genre", genreRouter);
 app.use("/api/v1/movie", movieRouter);
 app.use("/api/v1/director", directorRouter);
 app.use("/api/v1/actor", actorRoutes);
+app.use("/api/v1/user", userRouter);
 
 const port = process.env.PORT || 9000;
 
