@@ -10,6 +10,17 @@ const getAllDirectors = async (req: any, res: any) => {
   }
 };
 
+const createDirector = async (req: any, res: any) => {
+  try {
+    const { dir_name, movies } = req.body;
+    const directors = await directorRepository.postDirector(dir_name, movies);
+    res.status(201).json({directors});
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
 const getSpecificDirector = async (req: any, res: any) => {
   try {
     const id = Number(req.params.id);
@@ -21,4 +32,4 @@ const getSpecificDirector = async (req: any, res: any) => {
   }
 };
 
-export { getAllDirectors };
+export { getAllDirectors, createDirector, getSpecificDirector };
