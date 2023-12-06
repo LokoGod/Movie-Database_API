@@ -15,7 +15,7 @@ model Movie {
   title String   @db.VarChar(500)
   genre MovieGenre[]
   director MovieDirector[]
-  cast     MovieActor[]
+  actor     MovieActor[]
 }
 
 model Genre {

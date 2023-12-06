@@ -15,14 +15,14 @@ const postMovie = async (data: any) => {
       director: {
         create: data.directorIds.map((id: any) => ({ directorId: id })),
       },
-      cast: {
-        create: data.castIds.map((id: any) => ({ castId: id })),
+      actor: {
+        create: data.actorIds.map((id: any) => ({ actorId: id })),
       },
     },
     include: {
       genre: true,
       director: true,
-      cast: true,
+      actor: true,
     },
   });
 };
