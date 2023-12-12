@@ -1,3 +1,5 @@
+"use client"
+
 import Navbar from "@/components/commen_ui/Navbar";
 import React from "react";
 import { FaCheckToSlot, FaRegTrashCan } from "react-icons/fa6";
@@ -5,12 +7,24 @@ import { useState, useEffect } from "react";
 
 import axios from 'axios';
 
+type DataType = {
+  // Define the data structure received from the API
+  id: number;
+  title: string;
+};
+
 const page = () => {
-  const [movieData, setMovieData] =  useState([])
+  const [movieData, setMovieData] =  useState<DataType[]>([])
 
   useEffect(() => {
-    
-  }, [])  
+    const fetchMovies = async () => {
+      const response = await axios.get<DataType[]>("http://localhost:5000/api/v1/movie");
+      console.log("response.data:", response.data);
+      setMovieData(response.data);
+    };
+    fetchMovies();
+  }, []);
+  
 
   return (
     <div>
@@ -41,6 +55,23 @@ const page = () => {
           </div>
         </div>
       </div>
+
+      {/* Rendered data "test" */}
+
+
+{
+  Object.entries(movieData).map(([key, value]) => (
+    <div key={movie.id}>
+          <h2>{movie.title}</h2>
+        </div>
+    // Render key and value
+  ))
+}
+
+      
+
+
+      {/* Rendered data "test" */}
 
       <h1 className="text-3xl font-bold text-center">Completed List</h1>
 
