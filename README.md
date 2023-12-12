@@ -8,3 +8,5 @@
 Add firebase storage
 
 API works hehe
+
+Front-End broken at the moment bruh...
