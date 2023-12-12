@@ -9,6 +9,10 @@ const signup = async (email: string, password: string) => {
   if (!email || !password) {
     throw Error('All fields must be filled')
   }
+
+  if  (!validator.isEmail(email))  {
+    throw Error('Email is not valid')
+  }
     
   const exists = await prisma.user.findUnique({ where: { email: email } });
 
