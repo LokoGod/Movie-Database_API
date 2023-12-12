@@ -22,7 +22,7 @@ const signup = async (email: string, password: string) => {
     throw Error(`Email: ${exists} already in use`);
   }
 
-  const salt = await bcrypt.genSalt(10);
+  const salt = await bcrypt.genSalt(10); 
   const hash = await bcrypt.hash(password, salt);
 
   const user = await prisma.user.create({ data: { email, password: hash } });
