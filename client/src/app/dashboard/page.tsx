@@ -3,7 +3,15 @@ import React from "react";
 import { FaCheckToSlot, FaRegTrashCan } from "react-icons/fa6";
 import { useState, useEffect } from "react";
 
+import axios from 'axios';
+
 const page = () => {
+  const [movieData, setMovieData] =  useState([])
+
+  useEffect(() => {
+    
+  }, [])  
+
   return (
     <div>
       <Navbar />
