@@ -4,6 +4,11 @@ import bcrypt from "bcrypt";
 import validator from 'validator';
 
 const signup = async (email: string, password: string) => {
+
+  // Validation
+  if (!email || !password) {
+    throw Error('All fields must be filled')
+  }
     
   const exists = await prisma.user.findUnique({ where: { email: email } });
 
