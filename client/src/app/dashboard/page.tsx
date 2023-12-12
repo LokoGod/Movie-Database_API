@@ -58,17 +58,11 @@ const page = () => {
 
       {/* Rendered data "test" */}
 
-
-{
-  Object.entries(movieData).map(([key, value]) => (
-    <div key={movie.id}>
-          <h2>{movie.title}</h2>
-        </div>
-    // Render key and value
-  ))
-}
-
-      
+      {movieData.map((movieData) => ( // Changed 'movie' to 'movieData'
+  <div key={movieData.id}>
+    <h2>{movieData.title}</h2>
+  </div>
+))}
 
 
       {/* Rendered data "test" */}
