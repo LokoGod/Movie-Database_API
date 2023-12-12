@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 import bcrypt from "bcrypt";
+import validator from 'validator';
 
 const signup = async (email: string, password: string) => {
     
